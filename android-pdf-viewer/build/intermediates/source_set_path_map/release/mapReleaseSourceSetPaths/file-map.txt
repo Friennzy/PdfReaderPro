@@ -1,0 +1,13 @@
+com.github.barteksc.pdfviewer.android-pdf-viewer-annotation-experimental-1.4.0-0 /home/codespace/.gradle/caches/transforms-4/3de33384c9ad248bb7ff0011b2337486/transformed/annotation-experimental-1.4.0/res
+com.github.barteksc.pdfviewer.android-pdf-viewer-core-1.13.1-1 /home/codespace/.gradle/caches/transforms-4/5e04541a293c6cb7a37f9821f0fed21d/transformed/core-1.13.1/res
+com.github.barteksc.pdfviewer.android-pdf-viewer-profileinstaller-1.3.0-2 /home/codespace/.gradle/caches/transforms-4/bdf311a0a94b533e3b0a527c1a40e2b7/transformed/profileinstaller-1.3.0/res
+com.github.barteksc.pdfviewer.android-pdf-viewer-core-runtime-2.2.0-3 /home/codespace/.gradle/caches/transforms-4/c3d7ab9381d27f9c2849dc819c24e126/transformed/core-runtime-2.2.0/res
+com.github.barteksc.pdfviewer.android-pdf-viewer-lifecycle-runtime-2.6.2-4 /home/codespace/.gradle/caches/transforms-4/df1b3f8d02e28a9b5fbcf9950f25e790/transformed/lifecycle-runtime-2.6.2/res
+com.github.barteksc.pdfviewer.android-pdf-viewer-startup-runtime-1.1.1-5 /home/codespace/.gradle/caches/transforms-4/e321bf2adc71fed6d6984c8824af193d/transformed/startup-runtime-1.1.1/res
+com.github.barteksc.pdfviewer.android-pdf-viewer-pngs-6 /workspaces/p/android-pdf-viewer/build/generated/res/pngs/release
+com.github.barteksc.pdfviewer.android-pdf-viewer-resValues-7 /workspaces/p/android-pdf-viewer/build/generated/res/resValues/release
+com.github.barteksc.pdfviewer.android-pdf-viewer-mergeReleaseResources-8 /workspaces/p/android-pdf-viewer/build/intermediates/incremental/release/mergeReleaseResources/merged.dir
+com.github.barteksc.pdfviewer.android-pdf-viewer-mergeReleaseResources-9 /workspaces/p/android-pdf-viewer/build/intermediates/incremental/release/mergeReleaseResources/stripped.dir
+com.github.barteksc.pdfviewer.android-pdf-viewer-release-10 /workspaces/p/android-pdf-viewer/build/intermediates/merged_res/release/mergeReleaseResources
+com.github.barteksc.pdfviewer.android-pdf-viewer-main-11 /workspaces/p/android-pdf-viewer/src/main/res
+com.github.barteksc.pdfviewer.android-pdf-viewer-release-12 /workspaces/p/android-pdf-viewer/src/release/res
