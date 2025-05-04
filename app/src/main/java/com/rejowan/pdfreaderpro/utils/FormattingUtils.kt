@@ -31,11 +31,11 @@ class FormattingUtils {
         }
 
         fun resizeName(s: String): String {
-            if (s.length <= 32) {
+            if (s.length <= 92) {
                 return s
             }
-            val first = s.substring(0, 18)
-            val last = s.substring(s.length - 10, s.length)
+            val first = s.substring(0, 60)
+            val last = s.substring(s.length - 30, s.length)
             return "$first...$last"
         }
 
