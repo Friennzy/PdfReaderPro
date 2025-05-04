@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.3.2" type="incidents">
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.appcompat:appcompat than 1.6.1 is available: 1.7.0">
+        <fix-replace
+            description="Change to 1.7.0"
+            family="Update versions"
+            oldString="1.6.1"
+            replacement="1.7.0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="4"
+            column="13"
+            startOffset="69"
+            endLine="4"
+            endColumn="20"
+            endOffset="76"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.constraintlayout:constraintlayout than 2.1.4 is available: 2.2.1">
+        <fix-replace
+            description="Change to 2.2.1"
+            family="Update versions"
+            oldString="2.1.4"
+            replacement="2.2.1"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="2"
+            column="20"
+            startOffset="30"
+            endLine="2"
+            endColumn="27"
+            endOffset="37"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.core:core than 1.13.1 is available: 1.16.0">
+        <fix-replace
+            description="Change to 1.16.0"
+            family="Update versions"
+            oldString="1.13.1"
+            replacement="1.16.0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="3"
+            column="11"
+            startOffset="48"
+            endLine="3"
+            endColumn="19"
+            endOffset="56"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.core:core-ktx than 1.13.1 is available: 1.16.0">
+        <fix-replace
+            description="Change to 1.16.0"
+            family="Update versions"
+            oldString="1.13.1"
+            replacement="1.16.0"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="3"
+            column="11"
+            startOffset="48"
+            endLine="3"
+            endColumn="19"
+            endOffset="56"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.espresso:espresso-core than 3.5.1 is available: 3.6.1">
+        <fix-replace
+            description="Change to 3.6.1"
+            family="Update versions"
+            oldString="3.5.1"
+            replacement="3.6.1"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="5"
+            column="16"
+            startOffset="92"
+            endLine="5"
+            endColumn="23"
+            endOffset="99"/>
+    </incident>
+
+    <incident
+        id="GradleDependency"
+        severity="warning"
+        message="A newer version of androidx.test.ext:junit than 1.1.5 is available: 1.2.1">
+        <fix-replace
+            description="Change to 1.2.1"
+            family="Update versions"
+            oldString="1.1.5"
+            replacement="1.2.1"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="7"
+            column="16"
+            startOffset="132"
+            endLine="7"
+            endColumn="23"
+            endOffset="139"/>
+    </incident>
+
+    <incident
+        id="AndroidGradlePluginVersion"
+        severity="warning"
+        message="A newer version of com.android.application than 8.3.2 is available: 8.9.2">
+        <fix-replace
+            description="Change to 8.9.2"
+            family="Update versions"
+            oldString="8.3.2"
+            replacement="8.9.2"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="14"
+            column="7"
+            startOffset="269"
+            endLine="14"
+            endColumn="14"
+            endOffset="276"/>
+    </incident>
+
+    <incident
+        id="AndroidGradlePluginVersion"
+        severity="warning"
+        message="A newer version of com.android.library than 8.3.2 is available: 8.9.2">
+        <fix-replace
+            description="Change to 8.9.2"
+            family="Update versions"
+            oldString="8.3.2"
+            replacement="8.9.2"/>
+        <location
+            file="../gradle/libs.versions.toml"
+            line="14"
+            column="7"
+            startOffset="269"
+            endLine="14"
+            endColumn="14"
+            endOffset="276"/>
+    </incident>
+
+</incidents>

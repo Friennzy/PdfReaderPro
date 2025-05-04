@@ -28,6 +28,7 @@ import com.rejowan.pdfreaderpro.utils.FormattingUtils.Companion.formattedFileSiz
 import com.rejowan.pdfreaderpro.utils.FormattingUtils.Companion.generateNormalThumbnail
 import com.rejowan.pdfreaderpro.utils.FormattingUtils.Companion.generateThumbnail
 import com.rejowan.pdfreaderpro.utils.FormattingUtils.Companion.resizeName
+import com.rejowan.pdfreaderpro.utils.FormattingUtils.Companion.resizeName_list
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -130,7 +131,7 @@ class RecentPdfAdapter(
         private var viewHolderScope = CoroutineScope(Dispatchers.Main + viewHolderJob)
 
         fun bind(recentModel: RecentModel) {
-            binding.fileName.text = resizeName(recentModel.name)
+            binding.fileName.text = resizeName_list(recentModel.name)
             binding.size.text = formattedFileSize(recentModel.size)
             binding.pages.text = recentModel.totalPageCount.toString() + " pages"
 

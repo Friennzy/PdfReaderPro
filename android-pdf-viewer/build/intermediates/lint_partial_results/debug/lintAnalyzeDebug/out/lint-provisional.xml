@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.3.2" type="conditional_incidents">
+
+    <incident
+        id="QueryPermissionsNeeded"
+        severity="warning"
+        message="Consider adding a `&lt;queries>` declaration to your manifest when calling this \&#xA;method; see https://g.co/dev/packagevisibility for details">
+        <location
+            file="${:android-pdf-viewer*debug*MAIN*sourceProvider*0*javaDir*0}/com/github/barteksc/pdfviewer/link/DefaultLinkHandler.java"
+            line="51"
+            column="20"
+            startOffset="1673"
+            endLine="51"
+            endColumn="35"
+            endOffset="1688"/>
+        <map>
+            <entry
+                name="queryAll"
+                boolean="false"/>
+        </map>
+    </incident>
+
+</incidents>

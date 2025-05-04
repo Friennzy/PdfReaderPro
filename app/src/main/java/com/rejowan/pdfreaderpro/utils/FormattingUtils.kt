@@ -31,6 +31,15 @@ class FormattingUtils {
         }
 
         fun resizeName(s: String): String {
+            if (s.length <= 32) {
+                return s
+            }
+            val first = s.substring(0, 18)
+            val last = s.substring(s.length - 10, s.length)
+            return "$first...$last"
+        }
+
+        fun resizeName_list(s: String): String {
             if (s.length <= 92) {
                 return s
             }
@@ -38,6 +47,7 @@ class FormattingUtils {
             val last = s.substring(s.length - 30, s.length)
             return "$first...$last"
         }
+                       
 
         fun formattedDate(lastModified: Long): String {
             val date = Date(lastModified * 1000)

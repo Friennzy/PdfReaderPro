@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<incidents format="6" by="lint 8.3.2" type="partial_results">
+    <map id="UnsafeImplicitIntentLaunch">
+            <map id="actionsSent">
+                    <map id="android.intent.action.VIEW (used to start an activity)">
+                        <location id="0"
+                            file="${:android-pdf-viewer*debug*MAIN*sourceProvider*0*javaDir*0}/com/github/barteksc/pdfviewer/link/DefaultLinkHandler.java"
+                            line="49"
+                            column="25"
+                            startOffset="1563"
+                            endLine="49"
+                            endColumn="66"
+                            endOffset="1604"/>
+                    </map>
+            </map>
+    </map>
+    <map id="UnusedResources">
+        <location id="R.layout.dialog_password"
+            file="${:android-pdf-viewer*debug*MAIN*sourceProvider*0*resDir*0}/layout/dialog_password.xml"
+            line="2"
+            column="1"
+            startOffset="39"
+            endLine="13"
+            endColumn="16"
+            endOffset="493"/>
+        <entry
+            name="model"
+            string="attr[sb_handlerColor(D),sb_indicatorColor(D),sb_indicatorTextColor(D),sb_horizontal(D)],drawable[default_scroll_handle_bottom(U),default_scroll_handle_left(U),default_scroll_handle_right(U),default_scroll_handle_top(U)],id[password_input(D)],layout[dialog_password(D)],styleable[ScrollBar(D)];5^6,7^4;;;"/>
+    </map>
+
+</incidents>

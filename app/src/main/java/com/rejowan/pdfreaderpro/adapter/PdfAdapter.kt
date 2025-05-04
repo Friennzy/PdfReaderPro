@@ -33,6 +33,7 @@ import com.rejowan.pdfreaderpro.utils.FormattingUtils.Companion.formattedFileSiz
 import com.rejowan.pdfreaderpro.utils.FormattingUtils.Companion.generateNormalThumbnail
 import com.rejowan.pdfreaderpro.utils.FormattingUtils.Companion.generateThumbnail
 import com.rejowan.pdfreaderpro.utils.FormattingUtils.Companion.resizeName
+import com.rejowan.pdfreaderpro.utils.FormattingUtils.Companion.resizeName_list
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -129,7 +130,7 @@ class PdfAdapter(
         private var viewHolderScope = CoroutineScope(Dispatchers.Main + viewHolderJob)
 
         fun bind(pdfFile: PdfFile) {
-            binding.fileName.text = resizeName(pdfFile.name)
+            binding.fileName.text = resizeName_list(pdfFile.name)
             binding.date.text = formattedDate(pdfFile.dateModified)
             binding.size.text = formattedFileSize(pdfFile.size)
 

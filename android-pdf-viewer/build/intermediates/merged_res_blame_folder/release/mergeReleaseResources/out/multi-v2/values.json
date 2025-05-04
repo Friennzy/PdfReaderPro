@@ -4,25 +4,6 @@
             "outputFile": "com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/values/values.xml",
             "map": [
                 {
-                    "source": "/workspaces/p/android-pdf-viewer/src/main/res/values/attrs.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "7",
-                        "endColumns": "24",
-                        "endOffsets": "384"
-                    },
-                    "to": {
-                        "startLines": "217",
-                        "startColumns": "4",
-                        "startOffsets": "10496",
-                        "endLines": "222",
-                        "endColumns": "24",
-                        "endOffsets": "10821"
-                    }
-                },
-                {
                     "source": "/home/codespace/.gradle/caches/transforms-4/df1b3f8d02e28a9b5fbcf9950f25e790/transformed/lifecycle-runtime-2.6.2/res/values/values.xml",
                     "from": {
                         "startLines": "2",
@@ -73,6 +54,25 @@
                         "startOffsets": "5169",
                         "endColumns": "82",
                         "endOffsets": "5247"
+                    }
+                },
+                {
+                    "source": "/workspaces/PdfReaderPro/android-pdf-viewer/src/main/res/values/attrs.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "7",
+                        "endColumns": "24",
+                        "endOffsets": "384"
+                    },
+                    "to": {
+                        "startLines": "217",
+                        "startColumns": "4",
+                        "startOffsets": "10496",
+                        "endLines": "222",
+                        "endColumns": "24",
+                        "endOffsets": "10821"
                     }
                 }
             ]
@@ -81,25 +81,6 @@
             "outputFile": "com.github.barteksc.pdfviewer.android-pdf-viewer-mergeReleaseResources-7:/values/values.xml",
             "map": [
                 {
-                    "source": "/workspaces/p/android-pdf-viewer/src/main/res/values/attrs.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "7",
-                        "endColumns": "24",
-                        "endOffsets": "384"
-                    },
-                    "to": {
-                        "startLines": "217",
-                        "startColumns": "4",
-                        "startOffsets": "10496",
-                        "endLines": "222",
-                        "endColumns": "24",
-                        "endOffsets": "10821"
-                    }
-                },
-                {
                     "source": "/home/codespace/.gradle/caches/transforms-4/df1b3f8d02e28a9b5fbcf9950f25e790/transformed/lifecycle-runtime-2.6.2/res/values/values.xml",
                     "from": {
                         "startLines": "2",
@@ -150,6 +131,25 @@
                         "startOffsets": "5169",
                         "endColumns": "82",
                         "endOffsets": "5247"
+                    }
+                },
+                {
+                    "source": "/workspaces/PdfReaderPro/android-pdf-viewer/src/main/res/values/attrs.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "7",
+                        "endColumns": "24",
+                        "endOffsets": "384"
+                    },
+                    "to": {
+                        "startLines": "217",
+                        "startColumns": "4",
+                        "startOffsets": "10496",
+                        "endLines": "222",
+                        "endColumns": "24",
+                        "endOffsets": "10821"
                     }
                 }
             ]

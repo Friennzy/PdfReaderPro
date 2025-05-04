@@ -1,6 +1,6 @@
 <lint-module
     format="1"
-    dir="/workspaces/p/android-pdf-viewer"
+    dir="/workspaces/PdfReaderPro/android-pdf-viewer"
     name=":android-pdf-viewer"
     type="LIBRARY"
     maven="PDF Reader Pro:android-pdf-viewer:"
