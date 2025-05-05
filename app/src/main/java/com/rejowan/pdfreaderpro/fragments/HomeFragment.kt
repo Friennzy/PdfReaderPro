@@ -24,7 +24,6 @@ import com.rejowan.pdfreaderpro.databinding.FragmentHomeBinding
 import com.rejowan.pdfreaderpro.interfaces.OnPdfFileClicked
 import com.rejowan.pdfreaderpro.interfaces.OnRecentClicked
 import com.rejowan.pdfreaderpro.vms.PdfListViewModel
-import com.rejowan.pdfreaderpro.R
 import com.google.android.material.tabs.TabLayout
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import java.io.File
@@ -216,12 +215,6 @@ class HomeFragment : Fragment() {
         binding.totalFilesTitle.visibility = View.VISIBLE
 
         binding.totalFiles.text = pdfFiles.size.toString()
-        binding.totalFilesLayout.setOnClickListener {        
-        parentFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, FilesFragment())
-            .addToBackStack(null) 
-            .commit()
-        }
         
         val totalFileSize = formatFileSize(requireContext(), pdfFiles.sumOf { it.size })
         binding.pdfSize.text = totalFileSize.substring(0, totalFileSize.length - 2)
