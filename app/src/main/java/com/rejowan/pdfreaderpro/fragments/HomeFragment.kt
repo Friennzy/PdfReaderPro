@@ -215,7 +215,13 @@ class HomeFragment : Fragment() {
         binding.totalFilesTitle.visibility = View.VISIBLE
 
         binding.totalFiles.text = pdfFiles.size.toString()
-
+        binding.totalFilesLayout.setOnClickListener {        
+        parentFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, FilesFragment())
+            .addToBackStack(null) 
+            .commit()
+        }
+        
         val totalFileSize = formatFileSize(requireContext(), pdfFiles.sumOf { it.size })
         binding.pdfSize.text = totalFileSize.substring(0, totalFileSize.length - 2)
         binding.pdfSizeUnit.text = totalFileSize.substring(totalFileSize.length - 2)
