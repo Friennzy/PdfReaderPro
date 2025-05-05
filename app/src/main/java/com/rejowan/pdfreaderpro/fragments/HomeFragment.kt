@@ -227,10 +227,9 @@ class HomeFragment : Fragment() {
         val totalBlocks = stat.blockCountLong
         val total = totalBlocks * blockSize
         val totalFree = stat.availableBlocksLong * blockSize
-        val totalUsed = total - totalFree
-        val usedFormatted = formatFileSize(requireContext(), totalUsed)
-        binding.totalSize.text = usedFormatted.substring(0, usedFormatted.length - 2)
-        binding.totalSizeUnit.text = usedFormatted.substring(usedFormatted.length - 2)
+        val freeFormatted = formatFileSize(requireContext(), totalFree)
+        binding.totalSize.text = freeFormatted.substring(0, freeFormatted.length - 2)
+        binding.totalSizeUnit.text = freeFormatted.substring(freeFormatted.length - 2)
 
         var pdfSizeInPercentage = (pdfFiles.sumOf { it.size } * 100) / totalUsed
         Log.e("Storage Details", "Total: $total , Total Free: $totalFree , Total Used: $totalUsed , pdfSize: ${pdfFiles.sumOf { it.size }}, pdfSizeInPercentage: $pdfSizeInPercentage")
