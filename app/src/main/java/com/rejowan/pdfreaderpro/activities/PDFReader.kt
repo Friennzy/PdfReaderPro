@@ -556,6 +556,13 @@ class PDFReader : AppCompatActivity() {
         }
     }
 
+    override fun onTrimMemory(level: Int) {
+        if (level == TRIM_MEMORY_UI_HIDDEN) {
+            saveLastPage()
+        }
+        super.onTrimMemory(level)
+    }
+
     override fun onPause() {
         saveLastPage()
         super.onPause()
