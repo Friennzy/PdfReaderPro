@@ -547,21 +547,24 @@ class PDFReader : AppCompatActivity() {
         window.decorView.systemUiVisibility = fullScreenFlags
     }
 
-    override fun onDestroy() {
-
-
+    private fun saveLastPage() {
         if (recentModel != null) {
             recentModel!!.totalPageCount = binding.customPdfView.pageCount
             recentModel!!.lastPageOpened = binding.customPdfView.currentPage
             recentModel!!.lastOpenedDate = System.currentTimeMillis()
             recentDBHelper.updateRecent(recentModel!!)
         }
-
-
-
-        super.onDestroy()
-
     }
+
+    override fun onPause() {
+        saveLastPage()
+        super.onPause()
+    }
+
+    override fun onDestroy() {
+        saveLastPage()
+        super.onDestroy()
+    }    
 
     override fun onBackPressed() {
         if (isOutside) {
