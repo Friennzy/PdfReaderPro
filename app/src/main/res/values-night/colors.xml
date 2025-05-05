@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#7372C3</color>
-    <color name="colorSecondary">#6F6295</color>
-    <color name="colorPrimaryDark">#7372C3</color>
-    <color name="colorAccent">#7372C3</color>
-    <color name="textColor">#DADADA</color>
-    <color name="textColorSecondary">#CACACA</color>
-    <color name="backgroundColor">#181818</color>
-    <color name="backgroundColorSecondary">#212121</color>
+    <color name="colorPrimary">#597ADA</color> <!-- biru pengganti ungu -->
+    <color name="colorSecondary">#98ABE3</color> <!-- biru muda pengganti ungu muda -->
+    <color name="colorPrimaryDark">#597ADA</color>
+    <color name="colorAccent">#597ADA</color>
+    <color name="textColor">#212121</color>
+    <color name="textColorSecondary">#656565</color>
+    <color name="backgroundColor">#FFFFFF</color>
+    <color name="backgroundColorSecondary">#F5F5F5</color>
     <color name="white">#ffffff</color>
     <color name="grey">#919191</color>
-    <color name="red">#BC2F2F</color>
-    <color name="red_light">#BA4242</color>
+    <color name="red">#DC4C4C</color>
+    <color name="red_light">#D65555</color>
     <color name="green">#689F38</color>
-    <color name="colorPrimary_grey">#7F7F98</color>
+    <color name="colorPrimary_grey">#C6D2EA</color> <!-- disesuaikan dari #C6C6EA -->
     <color name="reverse_white">#121212</color>
     <color name="_white">#efefef</color>
     <color name="wave_background">#515151</color>
@@ -21,5 +21,4 @@
     <color name="textGrey">#9B9CA8</color>
     <color name="dark_backgroundColor">#181818</color>
     <color name="light_backgroundColor">#ffffff</color>
-
 </resources>
