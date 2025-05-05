@@ -24,6 +24,7 @@ import com.rejowan.pdfreaderpro.databinding.FragmentHomeBinding
 import com.rejowan.pdfreaderpro.interfaces.OnPdfFileClicked
 import com.rejowan.pdfreaderpro.interfaces.OnRecentClicked
 import com.rejowan.pdfreaderpro.vms.PdfListViewModel
+import com.rejowan.pdfreaderpro.R
 import com.google.android.material.tabs.TabLayout
 import org.koin.androidx.viewmodel.ext.android.activityViewModel
 import java.io.File
@@ -233,6 +234,7 @@ class HomeFragment : Fragment() {
         val totalBlocks = stat.blockCountLong
         val total = totalBlocks * blockSize
         val totalFree = stat.availableBlocksLong * blockSize
+        val totalUsed = total - totalFree
         val freeFormatted = formatFileSize(requireContext(), totalFree)
         binding.totalSize.text = freeFormatted.substring(0, freeFormatted.length - 2)
         binding.totalSizeUnit.text = freeFormatted.substring(freeFormatted.length - 2)
