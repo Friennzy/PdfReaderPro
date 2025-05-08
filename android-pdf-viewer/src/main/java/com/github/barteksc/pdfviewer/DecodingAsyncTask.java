@@ -84,7 +84,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
                     if (attempts < DEFAULT_PASSWORDS.length - 1) {
                         attempts++;
                         new DecodingAsyncTask(docSource, null, userPages, pdfView, pdfiumCore).execute();
-                    } else {
+                    } else { 
                             showPasswordDialog(pdfView);     
                         }              
                 } else {
