@@ -39,7 +39,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
     private int[] userPages;
     private PdfFile pdfFile;
     private int attempts = 0;
-    private static final String[] DEFAULT_PASSWORDS = {"toonbatch.web.id", null, ""};
+    private static final String[] DEFAULT_PASSWORDS = {"toonbatch.web.id"};
 
     DecodingAsyncTask(DocumentSource docSource, String password, int[] userPages, PDFView pdfView, PdfiumCore pdfiumCore) {
         this.docSource = docSource;
