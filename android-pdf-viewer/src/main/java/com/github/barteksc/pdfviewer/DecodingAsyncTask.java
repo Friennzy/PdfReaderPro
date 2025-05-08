@@ -85,12 +85,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
                         attempts++;
                         new DecodingAsyncTask(docSource, null, userPages, pdfView, pdfiumCore).execute();
                     } else {
-                        if (passwordDialog != null) {
-                            passwordDialog.setTitle("Password Salah! Masukkan Ulang:");
-                            password = null;
-                        } else {
-                            showPasswordDialog(pdfView);
-                           }
+                            showPasswordDialog(pdfView);     
                         }
                     }
                 } else {
