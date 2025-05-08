@@ -660,6 +660,20 @@ public class PDFView extends RelativeLayout {
 
         // Restores the canvas position
         canvas.translate(-currentXOffset, -currentYOffset);
+        
+        if (pdfFile != null && state == State.SHOWN) {
+            String pageInfo = (currentPage + 1) + "/" + pdfFile.getPagesCount();
+            Paint textPaint = new Paint();
+            textPaint.setTextSize(48);
+            textPaint.setColor(Color.WHITE);
+            textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+            textPaint.setStrokeWidth(4);
+            textPaint.setAntiAlias(true);
+            textPaint.setShadowLayer(2, 1, 1, Color.BLACK);
+            float textWidth = textPaint.measureText(pageInfo);
+            canvas.drawText(pageInfo, (getWidth() - textWidth) / 2, getHeight() - 30, textPaint);
+        }
+
     }
 
     private void drawWithListener(Canvas canvas, int page, OnDrawListener listener) {
