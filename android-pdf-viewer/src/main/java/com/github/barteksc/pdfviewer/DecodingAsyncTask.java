@@ -39,7 +39,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
     private int[] userPages;
     private PdfFile pdfFile;
     private int attempts = 0;
-    private static final String[] DEFAULT_PASSWORDS = {"toonbatch.web.id", ""};
+    private static final String[] DEFAULT_PASSWORDS = {"toonbatch.web.id", null, ""};
 
     DecodingAsyncTask(DocumentSource docSource, String password, int[] userPages, PDFView pdfView, PdfiumCore pdfiumCore) {
         this.docSource = docSource;
@@ -85,7 +85,13 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
                         attempts++;
                         new DecodingAsyncTask(docSource, null, userPages, pdfView, pdfiumCore).execute();
                     } else {
-                        showPasswordDialog(pdfView);
+                        if (passwordDialog != null) {
+                            passwordDialog.setTitle("Password Salah! Masukkan Ulang:");
+                            password = null;
+                        } else {
+                            showPasswordDialog(pdfView);
+                           }
+                        }
                     }
                 } else {
                     pdfView.loadError(t);
@@ -107,27 +113,22 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
         Context context = pdfView.getContext();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Masukkan Password");
+        builder.setTitle("Masukkan Password:");
         builder.setCancelable(false);
 
         final EditText input = new EditText(context);
         input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         builder.setView(input);
 
-        final AlertDialog dialog = builder.create();
-
-        builder.setPositiveButton("OK", (dialogInterface, which) -> {
+        builder.setPositiveButton("OK", (dialog, which) -> {
             String newPassword = input.getText().toString();
             new DecodingAsyncTask(docSource, newPassword, userPages, pdfView, pdfiumCore).execute();
         });
 
-        builder.setNegativeButton("Batal", (dialogInterface, which) -> {
+        builder.setNegativeButton("Batal", (dialog, which) -> {
             dialog.dismiss();
-            if (pdfView.callbacks != null) {
-                pdfView.callbacks.onLoadError(new Exception("Pembatalan oleh pengguna"));
-            }
         });
 
-        dialog.show();
+        builder.show();
     }
 }
