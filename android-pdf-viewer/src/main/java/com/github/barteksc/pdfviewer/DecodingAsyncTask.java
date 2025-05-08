@@ -86,8 +86,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
                         new DecodingAsyncTask(docSource, null, userPages, pdfView, pdfiumCore).execute();
                     } else {
                             showPasswordDialog(pdfView);     
-                        }
-                    }
+                        }              
                 } else {
                     pdfView.loadError(t);
                 }
