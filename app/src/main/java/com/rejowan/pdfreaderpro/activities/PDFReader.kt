@@ -539,12 +539,24 @@ class PDFReader : AppCompatActivity() {
         binding.toolbar.visibility = View.VISIBLE
         binding.bottomToolbar.visibility = View.VISIBLE
         window.decorView.systemUiVisibility = normalFlags
+        val scrollHandle = binding.customPdfView.scrollHandle
+        if (scrollHandle is DefaultScrollHandle) {
+            if (binding.customPdfView.isSwipeVertical) {
+                scrollHandle.setHandleSize(DefaultScrollHandle.HANDLE_LONG, DefaultScrollHandle.HANDLE_SHORT)
+            } else {
+                scrollHandle.setHandleSize(DefaultScrollHandle.HANDLE_SHORT, DefaultScrollHandle.HANDLE_LONG)
+            }
+        }
     }
 
     fun hideActionUI() {
         binding.toolbar.visibility = View.GONE
         binding.bottomToolbar.visibility = View.GONE
         window.decorView.systemUiVisibility = fullScreenFlags
+        val scrollHandle = binding.customPdfView.scrollHandle
+        if (scrollHandle is DefaultScrollHandle) {
+            scrollHandle.setHandleSize(0, 0)
+        }
     }
 
     private fun saveLastPage() {
