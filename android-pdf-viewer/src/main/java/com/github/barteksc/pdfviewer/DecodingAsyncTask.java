@@ -68,7 +68,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
 
         } catch (Throwable t) {
             return t;
-        }
+        } 
     }
 
     private Size getViewSize(PDFView pdfView) {
