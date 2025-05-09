@@ -39,7 +39,8 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
     private int[] userPages;
     private PdfFile pdfFile;
     private int attempts = 0;
-    private static final String[] DEFAULT_PASSWORDS = {"toonbatch.web.id"};
+    private static final String[] DEFAULT_PASSWORDS = {"", "toonbatch.web.id"};
+    private boolean manualRetry = false;
 
     DecodingAsyncTask(DocumentSource docSource, String password, int[] userPages, PDFView pdfView, PdfiumCore pdfiumCore) {
         this.docSource = docSource;
@@ -48,7 +49,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
         this.pdfViewReference = new WeakReference<>(pdfView);
         this.password = password;
         this.pdfiumCore = pdfiumCore;
-        this.attempts = password == null ? 0 : 1;
+        this.attempts = password == null ? 0 : 2;
     }
 
     @Override
@@ -68,7 +69,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
 
         } catch (Throwable t) {
             return t;
-        } 
+        }
     }
 
     private Size getViewSize(PDFView pdfView) {
@@ -81,12 +82,12 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
         if (pdfView != null) {
             if (t != null) {
                 if (t.getMessage() != null && t.getMessage().toLowerCase().contains("password")) {
-                    if (attempts < DEFAULT_PASSWORDS.length - 1) {
+                    if (attempts < 2) {
                         attempts++;
                         new DecodingAsyncTask(docSource, null, userPages, pdfView, pdfiumCore).execute();
-                    } else { 
-                            showPasswordDialog(pdfView);     
-                        }              
+                    } else {
+                        showPasswordDialog(pdfView);
+                    }
                 } else {
                     pdfView.loadError(t);
                 }
@@ -107,7 +108,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
         Context context = pdfView.getContext();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Masukkan Password:");
+        builder.setTitle(manualRetry ? "Password salah! Masukkan ulang?" : "Masukkan Password:");
         builder.setCancelable(false);
 
         final EditText input = new EditText(context);
@@ -116,7 +117,9 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
 
         builder.setPositiveButton("OK", (dialog, which) -> {
             String newPassword = input.getText().toString();
-            new DecodingAsyncTask(docSource, newPassword, userPages, pdfView, pdfiumCore).execute();
+            DecodingAsyncTask task = new DecodingAsyncTask(docSource, newPassword, userPages, pdfView, pdfiumCore);
+            task.manualRetry = true;
+            task.execute();
         });
 
         builder.setNegativeButton("Batal", (dialog, which) -> {
