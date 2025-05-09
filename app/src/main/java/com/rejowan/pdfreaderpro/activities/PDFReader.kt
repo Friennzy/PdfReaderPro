@@ -37,6 +37,7 @@ import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.io.File
+import com.github.barteksc.pdfviewer.util.Util;
 
 @Suppress("DEPRECATION")
 class PDFReader : AppCompatActivity() {
@@ -68,6 +69,7 @@ class PDFReader : AppCompatActivity() {
     private lateinit var favoriteDBHelper: FavoriteDBHelper
 
     var isPDFDarkEnabled = false
+    private var myScrollHandle: DefaultScrollHandle? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -122,6 +124,7 @@ class PDFReader : AppCompatActivity() {
     }
 
     private fun setupPdfViewWithUri() {
+        myScrollHandle = DefaultScrollHandle(this)
 
         binding.customPdfView
             .fromUri(pdfUri)
@@ -139,7 +142,7 @@ class PDFReader : AppCompatActivity() {
             .defaultPage(currentPage)
             .enableAnnotationRendering(true)
             .password(null)
-            .scrollHandle(DefaultScrollHandle(this))
+            .scrollHandle(myScrollHandle)
             .enableAntialiasing(true)
             .nightMode(isPDFDarkEnabled)
             .spacing(0)
@@ -265,6 +268,8 @@ class PDFReader : AppCompatActivity() {
             currentPage = recentModel!!.lastPageOpened
         }
 
+        myScrollHandle = DefaultScrollHandle(this)
+
         binding.customPdfView
             .fromFile(file)
             .onTap {
@@ -282,7 +287,7 @@ class PDFReader : AppCompatActivity() {
             .nightMode(isPDFDarkEnabled)
             .enableAnnotationRendering(true)
             .password(null)
-            .scrollHandle(DefaultScrollHandle(this))
+            .scrollHandle(myScrollHandle)
             .enableAntialiasing(true)
             .spacing(0)
             .load()
@@ -539,13 +544,17 @@ class PDFReader : AppCompatActivity() {
         binding.toolbar.visibility = View.VISIBLE
         binding.bottomToolbar.visibility = View.VISIBLE
         window.decorView.systemUiVisibility = normalFlags
-        val scrollHandle = binding.customPdfView.scrollHandle
-        if (scrollHandle is DefaultScrollHandle) {
+        myScrollHandle?.let {
+            val handleLong = Util.getDP(this, 55)
+            val handleShort = Util.getDP(this, 35)
             if (binding.customPdfView.isSwipeVertical) {
-                scrollHandle.setHandleSize(DefaultScrollHandle.HANDLE_LONG, DefaultScrollHandle.HANDLE_SHORT)
+                it.layoutParams.width = handleLong
+                it.layoutParams.height = handleShort
             } else {
-                scrollHandle.setHandleSize(DefaultScrollHandle.HANDLE_SHORT, DefaultScrollHandle.HANDLE_LONG)
+                it.layoutParams.width = handleShort
+                it.layoutParams.height = handleLong
             }
+            it.requestLayout()
         }
     }
 
@@ -553,9 +562,10 @@ class PDFReader : AppCompatActivity() {
         binding.toolbar.visibility = View.GONE
         binding.bottomToolbar.visibility = View.GONE
         window.decorView.systemUiVisibility = fullScreenFlags
-        val scrollHandle = binding.customPdfView.scrollHandle
-        if (scrollHandle is DefaultScrollHandle) {
-            scrollHandle.setHandleSize(0, 0)
+        myScrollHandle?.let {
+            it.layoutParams.height = 0
+            it.layoutParams.width = 0
+            it.requestLayout()
         }
     }
 
