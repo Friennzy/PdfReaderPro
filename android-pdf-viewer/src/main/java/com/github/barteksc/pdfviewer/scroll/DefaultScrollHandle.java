@@ -18,9 +18,9 @@ import com.github.barteksc.pdfviewer.util.Util;
 
 public class DefaultScrollHandle extends RelativeLayout implements ScrollHandle {
 
-    private final static int HANDLE_LONG = 25;
-    private final static int HANDLE_SHORT = 20;
-    private final static int DEFAULT_TEXT_SIZE = 15;
+    private final static int HANDLE_LONG = 55;
+    private final static int HANDLE_SHORT = 35;
+    private final static int DEFAULT_TEXT_SIZE = 16;
 
     private float relativeHandlerMiddle = 0f;
 
@@ -79,9 +79,7 @@ public class DefaultScrollHandle extends RelativeLayout implements ScrollHandle 
             }
         }
 
-
         setBackground(background);
-
 
         LayoutParams lp = new LayoutParams(Util.getDP(context, width), Util.getDP(context, height));
         lp.setMargins(0, 0, 0, 0);
@@ -95,6 +93,15 @@ public class DefaultScrollHandle extends RelativeLayout implements ScrollHandle 
         pdfView.addView(this, lp);
 
         this.pdfView = pdfView;
+    }
+
+    public void setHandleSize(int width, int height) {
+        LayoutParams lp = (LayoutParams) getLayoutParams();
+        if (lp != null) {
+            lp.width = Util.getDP(context, width);
+            lp.height = Util.getDP(context, height);
+            setLayoutParams(lp);
+        }
     }
 
     @Override
@@ -201,7 +208,6 @@ public class DefaultScrollHandle extends RelativeLayout implements ScrollHandle 
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-
         if (!isPDFViewReady()) {
             return super.onTouchEvent(event);
         }
