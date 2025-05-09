@@ -545,7 +545,7 @@ class PDFReader : AppCompatActivity() {
         binding.bottomToolbar.visibility = View.VISIBLE
         window.decorView.systemUiVisibility = normalFlags
         myScrollHandle?.let {
-            val handleLong = Util.getDP(this, 55)
+            val handleLong = Util.getDP(this, 50)
             val handleShort = Util.getDP(this, 35)
             if (binding.customPdfView.isSwipeVertical) {
                 it.layoutParams.width = handleLong
