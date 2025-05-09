@@ -18,9 +18,9 @@ import com.github.barteksc.pdfviewer.util.Util;
 
 public class DefaultScrollHandle extends RelativeLayout implements ScrollHandle {
 
-    private final static int HANDLE_LONG = 55;
-    private final static int HANDLE_SHORT = 35;
-    private final static int DEFAULT_TEXT_SIZE = 16;
+    private final static int HANDLE_LONG = 25;
+    private final static int HANDLE_SHORT = 20;
+    private final static int DEFAULT_TEXT_SIZE = 15;
 
     private float relativeHandlerMiddle = 0f;
 

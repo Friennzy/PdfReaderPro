@@ -1,34 +1,42 @@
 [
     {
-        "merged": "com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/notification_icon_background.xml",
-        "source": "com.github.barteksc.pdfviewer.android-pdf-viewer-core-1.13.1-1:/drawable/notification_icon_background.xml"
+        "merged": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/default_scroll_handle_right.xml",
+        "source": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-main-10:/drawable/default_scroll_handle_right.xml"
     },
     {
-        "merged": "com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/notification_bg_low.xml",
-        "source": "com.github.barteksc.pdfviewer.android-pdf-viewer-core-1.13.1-1:/drawable/notification_bg_low.xml"
+        "merged": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/notification_icon_background.xml",
+        "source": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-core-1.13.1-1:/drawable/notification_icon_background.xml"
+    },
+    {
+        "merged": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/default_scroll_handle_left.xml",
+        "source": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-main-10:/drawable/default_scroll_handle_left.xml"
+    },
+    {
+        "merged": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/notification_tile_bg.xml",
+        "source": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-core-1.13.1-1:/drawable/notification_tile_bg.xml"
     },
     {
         "merged": "com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/default_scroll_handle_bottom.xml",
         "source": "com.github.barteksc.pdfviewer.android-pdf-viewer-main-10:/drawable/default_scroll_handle_bottom.xml"
     },
     {
-        "merged": "com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/notification_bg.xml",
-        "source": "com.github.barteksc.pdfviewer.android-pdf-viewer-core-1.13.1-1:/drawable/notification_bg.xml"
+        "merged": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/notification_bg_low.xml",
+        "source": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-core-1.13.1-1:/drawable/notification_bg_low.xml"
     },
     {
-        "merged": "com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/default_scroll_handle_top.xml",
-        "source": "com.github.barteksc.pdfviewer.android-pdf-viewer-main-10:/drawable/default_scroll_handle_top.xml"
-    },
-    {
-        "merged": "com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/default_scroll_handle_left.xml",
-        "source": "com.github.barteksc.pdfviewer.android-pdf-viewer-main-10:/drawable/default_scroll_handle_left.xml"
+        "merged": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/default_scroll_handle_top.xml",
+        "source": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-main-10:/drawable/default_scroll_handle_top.xml"
     },
     {
         "merged": "com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/default_scroll_handle_right.xml",
         "source": "com.github.barteksc.pdfviewer.android-pdf-viewer-main-10:/drawable/default_scroll_handle_right.xml"
     },
     {
-        "merged": "com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/notification_tile_bg.xml",
-        "source": "com.github.barteksc.pdfviewer.android-pdf-viewer-core-1.13.1-1:/drawable/notification_tile_bg.xml"
+        "merged": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/default_scroll_handle_bottom.xml",
+        "source": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-main-10:/drawable/default_scroll_handle_bottom.xml"
+    },
+    {
+        "merged": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-release-9:/drawable/notification_bg.xml",
+        "source": "/home/codespace/.gradle/daemon/8.6/com.github.barteksc.pdfviewer.android-pdf-viewer-core-1.13.1-1:/drawable/notification_bg.xml"
     }
 ]

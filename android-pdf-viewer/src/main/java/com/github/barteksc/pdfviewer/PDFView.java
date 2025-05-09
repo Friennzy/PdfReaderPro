@@ -664,11 +664,11 @@ public class PDFView extends RelativeLayout {
         if (pdfFile != null && state == State.SHOWN) {
             String pageInfo = (currentPage + 1) + "/" + pdfFile.getPagesCount();
             Paint textPaint = new Paint();
-            textPaint.setTextSize(48);
+            textPaint.setTextSize(25);
             textPaint.setColor(Color.WHITE);
             textPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-            textPaint.setStrokeWidth(4);
-            textPaint.setAntiAlias(true);
+            textPaint.setStrokeWidth(1);
+            textPaint.setAntiAlias(false);
             textPaint.setShadowLayer(2, 1, 1, Color.BLACK);
             float textWidth = textPaint.measureText(pageInfo);
             canvas.drawText(pageInfo, (getWidth() - textWidth) / 2, getHeight() - 30, textPaint);
