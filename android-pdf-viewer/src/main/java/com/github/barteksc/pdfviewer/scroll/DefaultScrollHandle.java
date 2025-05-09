@@ -165,7 +165,7 @@ public class DefaultScrollHandle extends RelativeLayout implements ScrollHandle 
 
     @Override
     public void hideDelayed() {
-        handler.postDelayed(hidePageScrollerRunnable, 1000);
+        handler.postDelayed(hidePageScrollerRunnable, 4000);
     }
 
     @Override

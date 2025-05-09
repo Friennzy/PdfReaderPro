@@ -58,6 +58,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
             PDFView pdfView = pdfViewReference.get();
             if (pdfView != null) {
                 String pass = password != null ? password : DEFAULT_PASSWORDS[attempts];
+
                 PdfDocument pdfDocument = docSource.createDocument(pdfView.getContext(), pdfiumCore, pass);
                 pdfFile = new PdfFile(pdfiumCore, pdfDocument, pdfView.getPageFitPolicy(), getViewSize(pdfView),
                         userPages, pdfView.isSwipeVertical(), pdfView.getSpacingPx(), pdfView.isAutoSpacingEnabled(),
@@ -83,8 +84,9 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
             if (t != null) {
                 if (t.getMessage() != null && t.getMessage().toLowerCase().contains("password")) {
                     if (attempts < 2) {
-                        attempts++;
-                        new DecodingAsyncTask(docSource, null, userPages, pdfView, pdfiumCore).execute();
+                        DecodingAsyncTask retryTask = new DecodingAsyncTask(docSource, null, userPages, pdfView, pdfiumCore);
+                        retryTask.attempts = this.attempts + 1;
+                        retryTask.execute();
                     } else {
                         showPasswordDialog(pdfView);
                     }
