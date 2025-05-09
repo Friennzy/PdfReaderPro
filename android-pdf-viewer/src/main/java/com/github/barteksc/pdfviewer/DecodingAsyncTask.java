@@ -82,7 +82,7 @@ class DecodingAsyncTask extends AsyncTask<Void, Void, Throwable> {
         PDFView pdfView = pdfViewReference.get();
         if (pdfView != null) {
             if (t != null) {
-                if (t.getMessage() != null && t.getMessage().toLowerCase().contains("password")) {
+                if (t.getMessage() != null) {
                     if (attempts < 2) {
                         DecodingAsyncTask retryTask = new DecodingAsyncTask(docSource, null, userPages, pdfView, pdfiumCore);
                         retryTask.attempts = this.attempts + 1;
