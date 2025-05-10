@@ -125,7 +125,7 @@ class PDFReader : AppCompatActivity() {
 
 
     private fun setupPdfViewWithUri() {
-        
+
         binding.customPdfView
             .fromUri(pdfUri)
             .onTap {
@@ -149,67 +149,69 @@ class PDFReader : AppCompatActivity() {
             .load()
 
         val contentResolver = contentResolver
-        val projection = arrayOf(
+        val projection = {
+            arrayOf(
                 android.provider.MediaStore.Files.FileColumns._ID,
                 android.provider.MediaStore.Files.FileColumns.DISPLAY_NAME,
                 android.provider.MediaStore.Files.FileColumns.SIZE,
-                android.provider.MediaStore.Files.FileColumns.DATE_ADDED
-        )
-
+                android.provider.MediaStore.Files.FileColumns.DATA // path absolut
+            )
+        }
         val cursor = contentResolver.query(
-                pdfUri!!,
-                projection,
-                null,
-                null,
-                null
+            pdfUri!!,
+            projection(),
+            null,
+            null,
+            null
         )
 
         var title: String? = null
+        var fileSize: Long = 0
+        var filePath: String? = null
 
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                title = cursor.getString(
-                        cursor.getColumnIndexOrThrow(android.provider.MediaStore.Files.FileColumns.DISPLAY_NAME)
-                )
-            }
+        if (cursor != null && cursor.moveToFirst()) {
+            title = cursor.getString(
+                cursor.getColumnIndexOrThrow(android.provider.MediaStore.Files.FileColumns.DISPLAY_NAME)
+            )
+            fileSize = cursor.getLong(
+                cursor.getColumnIndexOrThrow(android.provider.MediaStore.Files.FileColumns.SIZE)
+            )
+            filePath = cursor.getString(
+                cursor.getColumnIndexOrThrow(android.provider.MediaStore.Files.FileColumns.DATA)
+            )
             cursor.close()
         }
 
-        val name = title?.replace(".pdf", "") ?: "Unknown"
-        val path = pdfUri.toString()
-
-        val size: Long = try {
-            val fileDescriptor = contentResolver.openAssetFileDescriptor(pdfUri!!, "r")
-            fileDescriptor?.length ?: 0
-        } catch (e: Exception) {
-            0
+        if (title == null || filePath == null) {
+            Toast.makeText(this, "Failed to load PDF metadata", Toast.LENGTH_SHORT).show()
+            finish()
+            return
         }
 
-        recentModel = if (recentDBHelper.checkIfExists(path)) {
-            recentDBHelper.getGetRecentByPath(path)
+        binding.title.text = resizeName(title)
+
+        if (!recentDBHelper.checkIfExists(filePath)) {
+            recentModel = RecentModel(
+                name = title.replace(".pdf", ""),
+                path = filePath,
+                size = fileSize,
+                lastOpenedDate = System.currentTimeMillis(),
+                totalPageCount = binding.customPdfView.pageCount,
+                lastPageOpened = 0
+            )
+            recentDBHelper.addRecentItem(recentModel!!)
         } else {
-            RecentModel(
-                    name = name,
-                    path = path,
-                    size = size,
-                    lastOpenedDate = System.currentTimeMillis(),
-                    totalPageCount = 0,
-                    lastPageOpened = 0
-            ).also {
-                recentDBHelper.addRecentItem(it)
+            recentModel = recentDBHelper.getGetRecentByPath(filePath)
+            if (recentModel!!.lastPageOpened != 0) {
+                currentPage = recentModel!!.lastPageOpened
             }
         }
 
-        if (recentModel?.lastPageOpened != 0) {
-            currentPage = recentModel!!.lastPageOpened
-        }
-
-        binding.title.text = resizeName(title ?: "Untitled")
         binding.ivOption.visibility = View.GONE
 
         setUpViewActions()
     }
-
+    
 
     private fun setUpViewActions() {
         binding.darkModeAction.setOnClickListener {
