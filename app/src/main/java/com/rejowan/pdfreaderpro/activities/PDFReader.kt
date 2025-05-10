@@ -125,29 +125,7 @@ class PDFReader : AppCompatActivity() {
 
 
     private fun setupPdfViewWithUri() {
-
-        binding.customPdfView
-            .fromUri(pdfUri)
-            .onTap {
-                if (binding.toolbar.isVisible) {
-                    hideActionUI()
-                } else {
-                    showActionUI()
-                }
-                true
-            }
-            .enableSwipe(true)
-            .swipeHorizontal(false)
-            .enableDoubletap(true)
-            .defaultPage(currentPage)
-            .enableAnnotationRendering(true)
-            .password(null)
-            .scrollHandle(DefaultScrollHandle(this))
-            .enableAntialiasing(true)
-            .nightMode(isPDFDarkEnabled)
-            .spacing(0)
-            .load()
-
+        myScrollHandle = DefaultScrollHandle(this)
         val contentResolver = contentResolver
         val projection = {
             arrayOf(
@@ -183,7 +161,7 @@ class PDFReader : AppCompatActivity() {
         }
 
         if (title == null || filePath == null) {
-            Toast.makeText(this, "Failed to load PDF metadata", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "gagal membuka pdf dari aplikasi ini, coba aplikasi lain seperti file manager atau chrome", Toast.LENGTH_LONG).show()
             finish()
             return
         }
@@ -206,6 +184,27 @@ class PDFReader : AppCompatActivity() {
                 currentPage = recentModel!!.lastPageOpened
             }
         }
+        binding.customPdfView
+                .fromUri(pdfUri)
+                .onTap {
+                    if (binding.toolbar.isVisible) {
+                        hideActionUI()
+                    } else {
+                        showActionUI()
+                    }
+                    true
+                }
+                .enableSwipe(true)
+                .swipeHorizontal(false)
+                .enableDoubletap(true)
+                .defaultPage(currentPage)
+                .enableAnnotationRendering(true)
+                .password(null)
+                .scrollHandle(myScrollHandle)
+                .enableAntialiasing(true)
+                .nightMode(isPDFDarkEnabled)
+                .spacing(0)
+                .load()
 
         binding.ivOption.visibility = View.GONE
 
