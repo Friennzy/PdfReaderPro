@@ -123,55 +123,7 @@ class PDFReader : AppCompatActivity() {
 
     }
 
-    private fun setupPdfViewWithUri() {
-        myScrollHandle = DefaultScrollHandle(this)
 
-        binding.customPdfView
-            .fromUri(pdfUri)
-            .onTap {
-                if (binding.toolbar.isVisible) {
-                    hideActionUI()
-                } else {
-                    showActionUI()
-                }
-                true
-            }
-            .enableSwipe(true)
-            .swipeHorizontal(false)
-            .enableDoubletap(true)
-            .defaultPage(currentPage)
-            .enableAnnotationRendering(true)
-            .password(null)
-            .scrollHandle(myScrollHandle)
-            .enableAntialiasing(true)
-            .nightMode(isPDFDarkEnabled)
-            .spacing(0)
-            .load()
-
-        val contentResolver = contentResolver
-        val projection = {
-            arrayOf(
-                android.provider.MediaStore.Files.FileColumns._ID,
-                android.provider.MediaStore.Files.FileColumns.DISPLAY_NAME,
-                android.provider.MediaStore.Files.FileColumns.SIZE,
-                android.provider.MediaStore.Files.FileColumns.DATE_ADDED
-            )
-        }
-        val cursor = contentResolver.query(
-            pdfUri!!,
-            projection(),
-            null,
-            null,
-            null
-        )
-        var title: String? = null
-
-        if (cursor != null) {
-            cursor.moveToFirst()
-
-            title =
-                cursor.getString(cursor.getColumnIndexOrThrow(android.provider.MediaStore.Files.FileColumns.DISPLAY_NAME))
-                
     private fun setupPdfViewWithUri() {
         
         binding.customPdfView
